@@ -11,31 +11,28 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   ApiServices client = ApiServices();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Buy For U'),
-      ),
-      body:FutureBuilder(
-        future:client.getArticle(),
-        builder:(BuildContext context, AsyncSnapshot<List<Article>> snapshot){
-
-          if(snapshot.hasData){
-            List<Article> articles = snapshot.data;
-            return ListView.builder(
-              itemCount: articles.length,
-              itemBuilder: (context,index)=>
-             customListTile(articles[index]),
-            );
-          }
-          return Center(
-            child:CircularProgressIndicator(),
-          );
-        }
-      )
-    );
+        appBar: AppBar(
+          title: Text('ຂ່າວສານທົ່ວໂລກ'),
+        ),
+        body: FutureBuilder(
+            future: client.getArticle(),
+            builder:
+                (BuildContext context, AsyncSnapshot<List<Article>> snapshot) {
+              if (snapshot.hasData) {
+                List<Article> articles = snapshot.data;
+                return ListView.builder(
+                  itemCount: articles.length,
+                  itemBuilder: (context, index) =>
+                      customListTile(articles[index], context),
+                );
+              }
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            }));
   }
 }

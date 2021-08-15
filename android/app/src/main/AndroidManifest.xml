@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.buyforyou">
    <application
-        android:label="buyforyou"
+        android:label="ຂ່າວສານ"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
